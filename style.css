@@ -1,0 +1,301 @@
+:root {
+  --green: #2e7d4f;
+  --green-dark: #a1212c;
+  --leaf: #e8f5ec;
+  --sun: #f7c948;
+  --text: #1f2a24;
+  --bg: #fafaf5;
+  --card: #e9e7e7;
+  --border: #d7e3da;
+  --ok: #2e7d4f;
+  --bad: #c0392b;
+  --base: 17px;
+}
+body.contrast {
+  --green: #ffd400; --green-dark: #ffd400; --leaf: #000; --text: #fff;
+  --bg: #000; --card: #111; --border: #fff;
+}
+* { box-sizing: border-box; }
+html { font-size: var(--base); scroll-behavior: smooth; }
+body { margin: 0; font-family: Verdana, "Segoe UI", sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 10px; top: 10px; background: var(--sun); padding: 8px; z-index: 99; }
+
+.site-header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: .6rem 1.2rem; background: var(--green-dark); color: #fff; }
+body.contrast .site-header { color: #000; }
+.brand { font-weight: bold; font-size: 1.2rem; }
+nav { display: flex; gap: .8rem; flex-wrap: wrap; flex: 1; }
+nav a { color: inherit; text-decoration: none; font-size: .85rem; padding: .3rem .5rem; border-radius: 6px; }
+nav a:hover, nav a.active { background: rgba(255,255,255,.2); }
+.tools button, .menu-btn { background: var(--sun); border: 0; border-radius: 6px; padding: .3rem .6rem; font-weight: bold; cursor: pointer; }
+.menu-btn { display: flex; }
+
+.hero { text-align: center; padding: 4rem 1rem; background: linear-gradient(135deg, var(--green), var(--green-dark)); color: #fff; }
+body.contrast .hero { color: #000; }
+.hero h1 { margin: 0 0 .5rem; font-size: 2.2rem; }
+
+main { max-width: 1000px; margin: 0 auto; padding: 1rem; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 2rem; margin: 1.5rem 0; box-shadow: 0 4px 14px rgba(0,0,0,.05); }
+h2 { color: var(--green); border-bottom: 3px solid var(--sun); padding-bottom: .3rem; margin-top: 0; }
+h3 { color: var(--green-dark); }
+body.contrast h3 { color: var(--green); }
+.small { font-size: .8rem; opacity: .8; }
+
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid var(--border); padding: .5rem; text-align: left; vertical-align: top; }
+th { background: var(--leaf); }
+.plan { font-size: .85rem; }
+
+.grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.tile { background: var(--leaf); border-radius: 12px; padding: 1rem; text-align: center; font-size: 1.8rem; }
+.tile h4 { margin: .3rem 0; font-size: 1rem; }
+.tile p { font-size: .85rem; margin: 0; }
+.tile.left { text-align: left; font-size: 1rem; }
+
+.equation { background: var(--leaf); border-left: 6px solid var(--sun); padding: 1rem; font-size: 1.15rem; font-weight: bold; text-align: center; }
+.arrow { display: inline-flex; flex-direction: column; align-items: center; margin: 0 .5rem; }
+.arrow small { font-size: .7rem; font-weight: normal; }
+
+figure { margin: 1rem 0; text-align: center; }
+.diagram { width: 100%; max-width: 600px; background: #eef8ff; border-radius: 12px; }
+.diagram text { font-size: 15px; fill: #222; }
+figcaption { font-size: .85rem; font-style: italic; }
+.video { position: relative; padding-top: 56.25%; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }
+
+.btn { display: inline-block; background: var(--sun); color: #000; border: 0; border-radius: 30px; padding: .6rem 1.4rem; font-weight: bold; cursor: pointer; text-decoration: none; margin: .5rem .3rem .5rem 0; font-size: .95rem; }
+.btn:hover { filter: brightness(.95); transform: translateY(-1px); }
+.btn.ghost { background: transparent; border: 2px solid var(--green); color: var(--green); }
+
+.bank, .builder { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: 1rem 0; font-weight: bold; }
+.bank { min-height: 50px; padding: .6rem; border: 2px dashed var(--border); border-radius: 10px; }
+.chip { background: var(--green); color: #fff; padding: .4rem .9rem; border-radius: 20px; cursor: grab; user-select: none; }
+body.contrast .chip { color: #000; }
+.chip.selected { outline: 3px solid var(--sun); }
+.slot { min-width: 140px; min-height: 44px; border: 2px dashed var(--green); border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: .2rem; }
+.slot.cond { border-color: var(--sun); }
+.slot.over { background: var(--leaf); }
+.slot.right { border: 3px solid var(--ok); }
+.slot.wrong { border: 3px solid var(--bad); }
+
+fieldset { border: 1px solid var(--border); border-radius: 10px; margin: .8rem 0; padding: .8rem 1rem; }
+legend { font-weight: bold; padding: 0 .4rem; }
+fieldset label { display: block; padding: .2rem 0; cursor: pointer; }
+fieldset.right { border-color: var(--ok); background: rgba(46,125,79,.08); }
+fieldset.wrong { border-color: var(--bad); background: rgba(192,57,43,.08); }
+#quizResult { font-size: 1.2rem; font-weight: bold; }
+
+footer { text-align: center; padding: 2rem 1rem; background: var(--green-dark); color: #fff; }
+body.contrast footer { color: #000; }
+
+@media (max-width: 800px) {
+  .menu-btn { display: block; }
+  nav { display: none; flex-direction: column; width: 100%; order: 3; }
+  nav.open { display: flex; }
+  .card { padding: 1rem; }
+  .hero h1 { font-size: 1.6rem; }
+}
+.sortbox { min-height: 140px; flex-direction: column; align-items: stretch; gap: .5rem; padding: .6rem; }
+.sortbox .chip { text-align: center; }
+
+.owners { flex-basis: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: .5rem; }
+.owners .welcome { margin: 0; font-weight: bold; letter-spacing: .05em; color: var(--sun); }
+body.contrast .owners .welcome { color: inherit; }
+.owners .names { margin: .25rem 0 0; font-size: .8rem; line-height: 1.4; }
+.unam-logo { display: block; margin: 0 auto .4rem; height: 56px; background: #fff; padding: 4px 10px; border-radius: 8px; }
+
+.memorandum{
+  background:#989c9a ;
+  border-radius: 15px;
+  padding: 20px;
+  
+}
+
+.memorandum:hover{
+  color: yellow;
+}
+#nav:hover {
+  color: yellow
+}
+/* ===== MOBILE RESPONSIVENESS FIX ===== */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+img,
+svg,
+iframe,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+/* SVG Diagram */
+.diagram {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Long text */
+.names,
+footer p,
+td,
+th,
+p,
+li {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Cards */
+.card {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Grids */
+.grid2,
+.grid4 {
+  width: 100%;
+}
+
+/* Interactive slots */
+.slot {
+  width: 100%;
+  min-width: 0;
+}
+
+.bank {
+  width: 100%;
+}
+
+.chip {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+/* Video */
+.video {
+  width: 100%;
+  overflow: hidden;
+}
+
+.video iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== PHONE STYLES ===== */
+
+@media screen and (max-width: 768px) {
+
+  .site-header {
+    padding: 0.8rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .grid2,
+  .grid4 {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .owners .names {
+    font-size: 0.75rem;
+  }
+
+  .tile {
+    font-size: 1rem;
+  }
+
+  .equation {
+    overflow-x: auto;
+    font-size: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin: 0.4rem 0;
+  }
+
+  .unam-logo {
+    height: 45px;
+  }
+}
+
+/* Small Phones */
+
+@media screen and (max-width: 480px) {
+
+  html {
+    font-size: 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.3rem;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+
+  .owners .welcome {
+    font-size: 0.8rem;
+  }
+
+  .owners .names {
+    font-size: 0.7rem;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th,
+  td {
+    padding: 0.4rem;
+  }
+}
